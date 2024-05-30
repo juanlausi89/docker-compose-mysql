@@ -1,0 +1,15 @@
+version: '3.8'
+
+
+services: 
+  mysql:
+    image: mysql:latest
+    restart: always
+    container_name: dbfinal
+    environment: 
+      - MYSQL_DATABASE=cine 
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - '3308:3306'
+    volumes:
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
